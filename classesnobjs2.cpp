@@ -9,7 +9,7 @@ public:
 };
 
 class Stack {
-    Node* top;  // pointer to the top node
+    Node* top;  
 public:
     Stack() : top(nullptr) {}
 
@@ -71,7 +71,7 @@ public:
 
     void insert(int x) {
         Node* newNode = new Node(x);
-        if (rear == nullptr) { // empty queue
+        if (rear == nullptr) { 
             front = rear = newNode;
             return;
         }
@@ -149,3 +149,4 @@ int main() {
 
     return 0;
 }
+
