@@ -125,6 +125,7 @@ public:
 };
 
 int main() {
+    cout << "Stack"<<endl;
     Stack s;
     s.push(4);
     s.push(3);
@@ -133,7 +134,8 @@ int main() {
 
     cout << "Popped from Stack: " << s.pop() << endl;
     s.display();
-
+    cout<< "============================================"<<endl;
+    cout << "Queue"<<endl;
     Queue q;
     q.insert(10);
     q.insert(20);
@@ -149,4 +151,3 @@ int main() {
 
     return 0;
 }
-
