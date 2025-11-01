@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 using namespace std;
 
 class Node {
@@ -19,10 +20,33 @@ public:
     Stack() {
         head = nullptr;
     }
-    void push(int val) {
+    void push(string vall) {
+        bool flag = true;
+        int val = 0, cnt = 0;
+
+        for (int i = 0; i < vall.length(); i++) {
+
+        if ((vall[0] == '+' || vall[0] == '-' || isdigit(vall[0])) && !cnt) {
+            cnt++;
+        }
+
+        if (!isdigit(vall[i]) && i!=0 && cnt) {
+            cout << "Please Enter a valid Number";
+            cnt--;
+            flag = false;
+        }
+        if(cnt){
+        val = val * 10 + (vall[i] - '0');
+        } else {
+            flag = false;
+        }
+    }
+
+    if(flag) {
         Node* newNode = new Node(val);
         newNode->next = head;
         head = newNode;
+        }
     }
     int pop() {
         if (isEmpty()) {
@@ -67,7 +91,28 @@ public:
     Queue() {
         front = rear = nullptr;
     }
-    void push(int val) {
+    void push(string vall) {
+        bool flag = true;
+        int val = 0, cnt = 0;
+
+        for (int i = 0; i < vall.length(); i++) {
+
+        if ((vall[0] == '+' || vall[0] == '-' || isdigit(vall[0])) && !cnt) {
+            cnt++;
+        }
+
+        if (!isdigit(vall[i]) && i!=0 && cnt) {
+            cout << "Please Enter a valid Number";
+            cnt--;
+            flag = false;
+        }
+        if(cnt){
+        val = val * 10 + (vall[i] - '0');
+        } else {
+            flag = false;
+        }
+    }
+        if(flag) {
         Node* newNode = new Node(val);
         if (!rear) {
             front = rear = newNode;
@@ -75,6 +120,7 @@ public:
         }
         rear->next = newNode;
         rear = newNode;
+        }
     }
     int pop() {
         if (isEmpty()) {
@@ -117,7 +163,7 @@ int main() {
     string choice, subchoice;
     Stack st;
     Queue q;
-    int input;
+    string input;
     bool flag = false;
 
     while (!flag) {
